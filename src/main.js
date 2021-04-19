@@ -5,9 +5,9 @@ import axios from 'axios'
 
 import App from './App.vue'
 import routes from './router/router'
+import store from './store/store'
 
 Vue.use(VueRouter)
-// Vue.use(Vuex)
 
 Vue.config.productionTip = false
 
@@ -21,4 +21,5 @@ const router = new VueRouter({
 new Vue({
   render: h => h(App),
   router,
+  store,
 }).$mount('#app')
