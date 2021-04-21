@@ -1,27 +1,43 @@
 <template>
-  <div>登录test{{userName}}</div>
+<div>
+  <div @click="showModal">登录test{{ userName }}</div>
+  <div @click="showModal2">登录test{{ userName }}</div>
+  </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
+import Message from "../../common/Message";
 
 export default {
-  data: function() {
+  data: function () {
     return {
-      userName: 'sbjue'
-    }
+      userName: "sbjue",
+    };
   },
   methods: {
     ...mapState({
-      count:  state => state.moduleA.count
+      count: (state) => state.moduleA.count,
     }),
-    ...mapState('moduleB', {
-      moduleBcount: state => state.moduleB.count
-    })
+    ...mapState("moduleB", {
+      moduleBcount: (state) => state.moduleB.count,
+    }),
+    showModal() {
+      Message({
+        type: "prompt",
+      }).then(data => {
+        console.log(data, '拿到了')
+      });
+    },
+    showModal2() {
+      Message({
+        type: "prompt",
+      }).then(data => {
+        console.log(data, '拿到了2')
+      });
+    },
   },
-  created () {
-    console.log(this.count())
-  }
+  created() {},
 };
 </script>
 
