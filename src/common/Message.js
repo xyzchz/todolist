@@ -20,7 +20,8 @@ export default ({ type }) => {
           remove: () => {
             document.body.removeChild(instance.$el) //从body中移除dom
             instance.$destroy()
-            instance = null
+            console.log(instance)
+            // instance = null
           }
         }
         return h(Message, { props })
@@ -31,7 +32,8 @@ export default ({ type }) => {
         }
       }
     })
-    instance = new MessageBoxConstructor().$mount(document.createElement('div'))
+    instance = new MessageBoxConstructor()
+    instance.$mount(document.createElement('div'))
     document.body.appendChild(instance.$el);
   })
 }
